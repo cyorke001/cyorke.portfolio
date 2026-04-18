@@ -496,6 +496,25 @@
     white-space: nowrap;
   }
   .skill-tag:hover { background: #fff; color: var(--dark); border-color: #fff; transform: translateY(-2px); }
+
+  /* Mobile: pills go full-width so they stack cleanly, no awkward orphans */
+  @media (max-width: 640px) {
+    .skill-tags {
+      gap: 0.45rem;
+    }
+    .skill-tag {
+      flex: 1 1 calc(50% - 0.25rem);
+      text-align: center;
+      white-space: normal;
+      font-size: 0.7rem;
+      padding: 0.6rem 0.75rem;
+    }
+    /* Let long single items span full width */
+    .skill-tag:only-child,
+    .skill-tag:last-child:nth-child(odd) {
+      flex: 1 1 100%;
+    }
+  }
   @media (min-width: 960px) {
     .rigour-grid { grid-template-columns: 0.85fr 1.5fr; gap: var(--s-6); align-items: start; }
   }
@@ -704,7 +723,8 @@
     text-transform: uppercase;
     color: var(--ink);
     font-weight: 700;
-    margin-right: 0.5rem;
+    width: 100%;
+    margin-bottom: 0.25rem;
   }
 
   .skill-pill {
@@ -719,6 +739,23 @@
     display: inline-block;
   }
   .skill-pill:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* Mobile: 2-column pill grid, no orphan wrapping */
+  @media (max-width: 640px) {
+    .signature-skills {
+      gap: 0.4rem;
+    }
+    .skill-pill {
+      flex: 1 1 calc(50% - 0.2rem);
+      text-align: center;
+      white-space: normal;
+      font-size: 0.72rem;
+      padding: 0.55rem 0.5rem;
+    }
+    .skill-pill:last-child:nth-child(odd) {
+      flex: 1 1 100%;
+    }
+  }
 
   .skills-grid {
     display: grid;
