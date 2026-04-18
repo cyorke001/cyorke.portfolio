@@ -222,9 +222,11 @@
     overflow: hidden;
     text-align: left;
     background: var(--cream);
-    min-height: calc(100vh - 72px - 120px);
     display: flex;
     align-items: center;
+  }
+  @media (min-width: 769px) {
+    .hero { min-height: calc(100vh - 72px - 120px); }
   }
   .hero-bg-text {
     position: absolute;
@@ -405,8 +407,10 @@
     .rigour-grid { grid-template-columns: 0.85fr 1.5fr; gap: var(--s-6); align-items: start; }
   }
 
-  #about, #experience, #education, #skills, #portfolio { min-height: 100vh; }
-  #contact { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+  @media (min-width: 769px) {
+    #about, #experience, #education, #skills, #portfolio { min-height: 100vh; }
+    #contact { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+  }
   .cream { background: var(--cream); }
   .cream h2.display {
     font-family: 'Playfair Display', serif;
