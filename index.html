@@ -411,7 +411,8 @@
   }
   .rigour-body p strong { color: #fff; font-weight: 600; }
   .rigour-divider { height: 1px; background: #222; margin: var(--s-4) 0 var(--s-3); }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .sig-tag { color: var(--ink) !important; border-color: var(--line) !important; }
+  .sig-tag:hover { background: var(--ink) !important; color: #fff !important; border-color: var(--ink) !important; }
   .skill-tag {
     font-size: 0.72rem;
     letter-spacing: 0.08em;
@@ -423,7 +424,7 @@
     cursor: default;
     white-space: nowrap;
   }
-  .skill-tag:hover { background: #fff; color: var(--dark); border-color: #fff; transform: translateY(-2px); }
+  .skill-tag:hover { background: var(--ink); color: #fff; border-color: var(--ink); transform: translateY(-2px); }
   @media (min-width: 960px) {
     .rigour-grid { grid-template-columns: 0.85fr 1.5fr; gap: var(--s-6); align-items: start; }
   }
@@ -1533,13 +1534,13 @@
       </div>
       <div class="signature-skills reveal" style="border-top:1px solid var(--line); margin-top:0;">
         <span class="sig-label">Signature</span>
-        <span class="skill-pill">Data Analysis</span>
-        <span class="skill-pill">Financial Modelling</span>
-        <span class="skill-pill">KPI Strategy</span>
-        <span class="skill-pill">Business Intelligence</span>
-        <span class="skill-pill">Process Optimization</span>
-        <span class="skill-pill">Revenue Growth</span>
-        <span class="skill-pill">NLP &amp; Sentiment Analysis</span>
+        <span class="skill-tag sig-tag">Data Analysis</span>
+        <span class="skill-tag sig-tag">Financial Modelling</span>
+        <span class="skill-tag sig-tag">KPI Strategy</span>
+        <span class="skill-tag sig-tag">Business Intelligence</span>
+        <span class="skill-tag sig-tag">Process Optimization</span>
+        <span class="skill-tag sig-tag">Revenue Growth</span>
+        <span class="skill-tag sig-tag">NLP &amp; Sentiment Analysis</span>
       </div>
 
       <div class="skills-grid">
