@@ -1188,10 +1188,17 @@
     .metric-value { font-size: clamp(1.2rem, 5vw, 1.8rem); }
     .metric-label { font-size: 0.55rem; letter-spacing: 0.12em; }
 
-    /* Experience — clean up role meta wrapping */
-    .role-meta { font-size: 0.68rem; letter-spacing: 0.08em; }
+    /* About section pills — 2 column grid, no orphans */
+    .skill-tags { gap: 0.4rem; }
+    .skill-tag { flex: 1 1 calc(50% - 0.2rem); text-align: center; white-space: normal; font-size: 0.7rem; padding: 0.6rem 0.5rem; }
+    .skill-tag:last-child:nth-child(odd) { flex: 1 1 100%; }
+
+    /* Experience — title + view details on one line, meta below */
+    .role-head { display: block; }
+    .role-title { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.35rem; }
+    .role-toggle { margin-top: 0; float: right; }
+    .role-meta { display: block; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--muted); margin-top: 0; clear: both; }
     .role-meta .sep { margin: 0 0.25rem; }
-    .role-title { font-size: clamp(1.1rem, 5vw, 1.4rem); }
 
     /* Signature skills — proper wrapping, no overflow */
     .signature-skills { gap: 0.35rem 0.6rem; padding: 0.85rem 0; margin-bottom: 1.5rem; }
