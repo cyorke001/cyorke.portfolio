@@ -124,13 +124,15 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 500;
-    padding: 11px 22px;
+    padding: 14px 52px;
+    min-width: 120px;
     background: #000;
     color: #fff !important;
     border: 1px solid #000;
     transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
     will-change: transform;
     align-self: center;
+    text-align: center;
   }
   .nav-cta:hover {
     background: #000 !important;
@@ -223,26 +225,8 @@
     position: relative;
     overflow: hidden;
     text-align: left;
+    background: var(--cream);
   }
-  .hero-bg-text {
-    position: absolute;
-    top: 50%; left: 0; right: 0;
-    transform: translateY(-50%);
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: clamp(2.5rem, 7.5vw, 7.5rem);
-    color: rgba(10, 10, 10, 0.02);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero-bg-text span { display: block; white-space: nowrap; }
   .hero .container { position: relative; z-index: 2; }
 
   .hero-grid {
@@ -332,10 +316,8 @@
 
   /* ---------- Metrics Strip ---------- */
   .metrics {
-    border-top: 1px solid var(--line-white);
-    border-bottom: 1px solid var(--line-white);
     padding: clamp(2rem, 4.5vw, 3rem) 0;
-    background: #fff;
+    background: var(--cream);
   }
   .metrics-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
@@ -940,16 +922,15 @@
 
   /* ---------- Contact ---------- */
   .contact {
-    background: var(--cream);
+    background: var(--dark);
     padding: clamp(var(--s-6), 12vw, 9rem) 0 clamp(var(--s-6), 10vw, 8rem);
   }
-  /* The contact BOX — solid black rectangle, hero-CTA weight, anchored on cream */
   .contact-box {
-    background: var(--ink);
+    background: transparent;
     color: #fff;
-    border: 1px solid var(--ink);
-    padding: clamp(2rem, 5.5vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
-    box-shadow: 0 30px 60px -30px rgba(10,10,10,0.35);
+    border: none;
+    padding: 0;
+    box-shadow: none;
   }
   .contact-layout {
     display: grid;
@@ -1178,11 +1159,6 @@
 <main id="top">
 
   <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero-bg-text" aria-hidden="true">
-      <span>OPERATIONS</span>
-      <span>FINANCIAL ADVISORY</span>
-      <span>BUSINESS ANALYTICS</span>
-    </div>
     <div class="container">
       <div class="hero-grid">
         <div>
