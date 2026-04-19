@@ -184,34 +184,59 @@
   .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   .mobile-menu {
-    position: fixed; inset: 72px 0 0 0; background: #fff; z-index: 99;
-    transform: translateY(-100%);
-    transition: transform 0.5s var(--ease);
-    padding: var(--s-5) var(--gutter) var(--s-4);
-    display: flex; flex-direction: column; gap: 1rem;
-    border-top: 1px solid var(--line-white);
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0; bottom: 0;
+    background: #fff;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.45s var(--ease);
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .mobile-menu.open { transform: translateY(0); }
-  .mobile-menu a {
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu-inner {
+    display: flex; flex-direction: column; height: 100%;
+    padding: 2rem var(--gutter) 2.5rem;
+  }
+  .mobile-nav-links { display: flex; flex-direction: column; gap: 0; flex: 1; }
+  .mobile-nav-links a {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
     color: var(--ink);
-    padding: 0.55rem 0;
-    border-bottom: 1px solid var(--line-white);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: color 0.2s var(--ease), padding-left 0.2s var(--ease);
+    line-height: 1.15;
   }
-  .mobile-menu .mobile-meta {
-    margin-top: auto; padding-top: var(--s-4);
-    display: flex; flex-wrap: wrap; gap: 1.25rem;
-    font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--muted);
+  .mobile-nav-links a:first-child { border-top: 1px solid var(--line); }
+  .mobile-nav-links a:hover { color: var(--muted); padding-left: 0.5rem; }
+  .mobile-nav-links a .link-arrow { font-size: 1.25rem; opacity: 0.3; transition: opacity 0.2s var(--ease), transform 0.2s var(--ease); }
+  .mobile-nav-links a:hover .link-arrow { opacity: 0.7; transform: translateX(4px); }
+  .mobile-cta { margin-top: 2rem; }
+  .mobile-cta a {
+    display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    width: 100%; background: #000; color: #fff;
+    font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; padding: 1.1rem 1.5rem;
+    transition: opacity 0.25s var(--ease);
   }
-  .mobile-menu .mobile-meta a {
-    font-family: 'Inter', sans-serif; font-size: 0.74rem; letter-spacing: 0.2em;
-    color: var(--muted); padding: 0; border: 0;
+  .mobile-cta a:hover { opacity: 0.85; }
+  .mobile-meta {
+    margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem;
   }
+  .mobile-meta a {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 500; color: var(--muted);
+    transition: color 0.2s var(--ease);
+    display: inline-flex; align-items: center; gap: 0.3rem;
+  }
+  .mobile-meta a:hover { color: var(--ink); }
   @media (min-width: 980px) {
     .nav-links { display: flex; }
     .hamburger { display: none; }
@@ -1142,17 +1167,32 @@
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-    <div class="mobile-meta">
-      <a href="mailto:clementkwesi.yorke@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/cyorke001" target="_blank" rel="noopener">GitHub</a>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-inner">
+      <div class="mobile-nav-links">
+        <a href="#about">About <span class="link-arrow">→</span></a>
+        <a href="#experience">Experience <span class="link-arrow">→</span></a>
+        <a href="#education">Education <span class="link-arrow">→</span></a>
+        <a href="#skills">Skills <span class="link-arrow">→</span></a>
+        <a href="#portfolio">Portfolio <span class="link-arrow">→</span></a>
+      </div>
+      <div class="mobile-cta">
+        <a href="#contact">Get in Touch →</a>
+      </div>
+      <div class="mobile-meta">
+        <a href="mailto:clementkwesi.yorke@gmail.com" aria-label="Email">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/clement-yorke/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3v9zM6.5 8.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19 19h-3v-4.5c0-1-.5-1.5-1.25-1.5S13 13.5 13 14.5V19h-3v-9h3v1.25c.5-1 1.5-1.5 2.75-1.5S19 11 19 13.5V19z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/cyorke001" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.19.69-3.86-1.54-3.86-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.39-5.25 5.67.41.35.77 1.04.77 2.1v3.12c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
     </div>
   </div>
 </header>
