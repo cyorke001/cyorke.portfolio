@@ -1173,6 +1173,33 @@
 
   ::selection { background: var(--ink); color: #fff; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  @media (max-width: 768px) {
+
+    /* Remove white space at bottom of last section */
+    #contact { padding-bottom: 0; }
+    .contact { padding-bottom: 0; }
+
+    /* Eyebrow — force single line, smaller */
+    .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.18em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* Metrics strip — 4 columns on mobile so all fit on one row */
+    .metrics-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .metric-value { font-size: clamp(1.2rem, 5vw, 1.8rem); }
+    .metric-label { font-size: 0.55rem; letter-spacing: 0.12em; }
+
+    /* Experience — clean up role meta wrapping */
+    .role-meta { font-size: 0.68rem; letter-spacing: 0.08em; }
+    .role-meta .sep { margin: 0 0.25rem; }
+    .role-title { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+
+    /* Signature skills — proper wrapping, no overflow */
+    .signature-skills { gap: 0.35rem 0.6rem; padding: 0.85rem 0; margin-bottom: 1.5rem; }
+    .sig-item { font-size: 0.82rem; }
+
+    /* Education — degree title on one line */
+    .edu-title { font-size: 0.95rem; }
+  }
 </style>
 </head>
 <body>
