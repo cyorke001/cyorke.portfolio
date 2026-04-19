@@ -411,7 +411,7 @@
   }
   .rigour-body p strong { color: #fff; font-weight: 600; }
   .rigour-divider { height: 1px; background: #222; margin: var(--s-4) 0 var(--s-3); }
-  .sig-tag { color: var(--ink) !important; border-color: var(--line) !important; background: transparent; white-space: nowrap; }
+  .sig-tag { color: var(--ink) !important; border-color: var(--line) !important; background: transparent; white-space: nowrap; font-size: 0.65rem !important; padding: 0.4rem 0.65rem !important; letter-spacing: 0.06em !important; }
   .sig-tag:hover { background: var(--ink) !important; color: #fff !important; border-color: var(--ink) !important; }
   .skill-tags { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
   .skill-tag {
@@ -618,12 +618,13 @@
   /* ---------- Skills ---------- */
   .signature-skills {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
     align-items: center;
     padding: clamp(1.1rem, 2vw, 1.4rem) 0;
     margin-bottom: clamp(2.25rem, 5vw, 3.25rem);
     border-bottom: 1px solid var(--line);
+    overflow-x: auto;
   }
   .signature-skills .sig-label {
     font-size: 0.68rem;
